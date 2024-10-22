@@ -12,6 +12,11 @@ public class Voar : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
     }
+    void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.gravityScale = 0;
+    }
 
     // Update is called once per frame
     void Update()
@@ -19,6 +24,10 @@ public class Voar : MonoBehaviour
         if (Keyboard.current.spaceKey.wasReleasedThisFrame || Mouse.current.leftButton.wasReleasedThisFrame)
         {
             _rb.velocity = Vector2.up * _velocidade;
+            if (_rb.gravityScale == 0)
+            {
+                _rb.gravityScale = 1;
+            }
         }
     }
     void FixedUpdate()
@@ -27,6 +36,6 @@ public class Voar : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameManager.instance.GameOver();
+        gameManager.instance.GameOver();
     }
 }

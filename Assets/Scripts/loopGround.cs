@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoopChão : MonoBehaviour
+public class loopGround : MonoBehaviour
 {
    [SerializeField] private float _velocidade = 1f;
    [SerializeField] private float _largura = 6f;
